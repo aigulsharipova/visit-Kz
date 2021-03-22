@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.oc1n0.mongodb.net/movies?retryWrites=true&w=majority/movies', {
+mongoose.connect('mongodb+srv://aigul:a19101910@aigul.ofs4f.mongodb.net/project2?retryWrites=true&w=majority', {
 	useNewUrlParser: true, 
 	useCreateIndex: true,
 	useUnifiedTopology: true 
+});
+
+// shortcut to mongoose.connection object
+const db = mongoose.connection;
+
+db.on('connected', function() {
+console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
 });
