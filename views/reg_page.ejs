@@ -1,0 +1,13 @@
+<%- include('parts/header', {header_title: title, page: 'login'}); %>
+<main>
+    <section class="section-user">
+        <form action="/users/user_reg" method="POST" class="section-user__reg">
+            Login: <input type="text" name="reg_login">
+            Password: <input type="password" name="reg_pass">
+            Name: <input type="text" name="reg_name">
+            Lastname: <input type="text" name="reg_lastname">
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</main>
+<%- include('parts/footer'); %>

@@ -1,0 +1,7 @@
+<%- include('parts/header', {header_title: 'Admin Page', page: 'admin'}); %>
+<main>
+    <% if (admin && admin.logged) { %>
+        <a href="/admin/posts/create">Create Post</a>
+    <% } %>
+</main>
+<%- include('parts/footer'); %>

@@ -10,5 +10,5 @@ ___
 ___
 
 ## Screenshots 📸
-![Example](./photo/photo1.png)
-![Example](./photo/photo2.png)
+![Example](./images/photo1.png)
+![Example](./images/photo2.png)
