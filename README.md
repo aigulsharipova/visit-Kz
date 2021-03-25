@@ -1,4 +1,4 @@
-# Visit in Kazakhstan 
+# Visit Kazakhstan 
 
 A simple web app about Kazakhstan. 
 ___
