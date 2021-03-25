@@ -15,7 +15,6 @@ exports.reg = function (req, res) {
                 login: req.body.reg_login.trim(),
                 name: req.body.reg_name.trim(),
                 email: req.body.reg_email.trim(),
-                lastname: req.body.reg_lastname.trim(),
                 password: val
             }, function(err, data) {
                 localStorage.setItem('user_info', JSON.stringify({'login' : data.login}));
