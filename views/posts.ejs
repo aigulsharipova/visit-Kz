@@ -1,0 +1,15 @@
+<%- include('parts/header', {user_info: header_info.user_info, logged: header_info.logged}); %>
+    <section class="section-posts">
+        <div class="container">
+            <h2 class="text-center">All Posts</h2>
+            <ul>
+                <% render.forEach(function(item, index) { %>
+                    <li class="d-flex flex-row justify-content-between border">
+                        <p class="mb-0"><%= item.title %></p>
+                        <a href="/posts/delete/<%= item._id %>">Delete</a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </section>
+<%- include('parts/footer'); %>

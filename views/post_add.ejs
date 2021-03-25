@@ -1,0 +1,14 @@
+<%- include('parts/header', {user_info: header_info.user_info, logged: header_info.logged}); %>
+    <section class="section-post-add">
+        <div class="container">
+            <p class="text-center">Add Post</p>
+            <form action="/posts/add" method="POST">
+                <p>Post Title: <input type="text" name="post_title" placeholder="Title"></p>
+                <p>Post Info small: <textarea name="post_small" cols="30" rows="6"></textarea></p>
+                <p>Post Info full: <textarea name="post_full" cols="30" rows="6"></textarea></p>
+                <p>Post Image <input type="text" name="post_image"></p>
+                <input type="submit" class="btn btn-primary" value="Create">
+            </form>
+        </div>
+    </section>
+<%- include('parts/footer'); %>

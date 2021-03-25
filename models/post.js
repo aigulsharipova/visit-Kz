@@ -6,8 +6,7 @@ const postSchema = new Schema({
     date_created: Date,
     info_small: String,
     info_full: String,
-    image_info: [String],
-    author_ID: mongoose.Schema.Types.ObjectId,
+    image_link: String
 });
 
 module.exports = mongoose.model('Posts', postSchema);

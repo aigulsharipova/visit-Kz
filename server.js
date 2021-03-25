@@ -7,7 +7,7 @@ require('./config/database');
 
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
-app.use(express.static('./public'));
+app.use('/public', express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -16,9 +16,11 @@ app.listen(port, function() {
 });
 
 const indexRouter = require("./routes/index");
+const postsRouter = require("./routes/posts");
 const usersRouter = require("./routes/users");
-const adminRouter = require("./routes/admin");
+const commentsRouter = require("./routes/comments");
 
 app.use("/", indexRouter);
+app.use("/posts", postsRouter);
 app.use("/users", usersRouter);
-app.use("/admin", adminRouter);
+app.use("/comments", commentsRouter);

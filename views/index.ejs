@@ -1,5 +1,19 @@
-<%- include('parts/header', {header_title: title, page: 'index'}); %>
-<main>
-    
-</main>
+<%- include('parts/header');%>
+    <% if (render) { %>
+        <section class="section-posts">
+            <div class="container">
+                <div class="row">
+                    <% render.forEach(function(item, index) { %>
+                        <a href="/posts/<%= item._id %>" class="col-12 col-md-6 col-lg-4 py-2 section-posts__post">
+                            <h2 class="section-posts__title text-center"><%= item.title %></h2>
+                            <div class="section-posts__image">
+                                <img class="w-100" src="<%= item.image_link %>" alt="<%= item.title %>">
+                            </div>
+                            <p class="mt-2 section-posts__info"><%= item.info_small %></p>
+                        </a>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+    <% } %>
 <%- include('parts/footer'); %>

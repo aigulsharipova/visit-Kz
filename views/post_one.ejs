@@ -1,0 +1,32 @@
+<%- include('parts/header', {user_info: header_info.user_info, logged: header_info.logged}); %>
+    <section class="section-post">
+        <div class="container">
+            <h2 class="text-center"><%= element.title %></h2>
+            <div class="text-center">
+                <img src="<%= element.image_link %>" alt="<%= element.title %>">
+            </div>
+            <p><%= element.info_full %></p>
+        </div>
+    </section>
+    <section class="section-comment">
+        <div class="container">
+            <% if (header_info.logged) { %>
+                <form method="POST" action="/comments/add/<%= element._id %>" class="border d-flex flex-column">
+                    <textarea placeholder="Comment..." name="comment" cols="30" rows="5"></textarea>
+                    <input type="submit" class="btn btn-primary" value="Add Comment">
+                </form>
+            <% } %>
+            <% comments.forEach(function(item, index) { %>
+                <% if (JSON.stringify(item.postID) === JSON.stringify(element._id)) { %>
+                <div class="mt-2 d-flex flex-column border">
+                    <span><%= usersObj[item.createdBy] %></span>
+                    <p class="mb-0"><%= item.comment %></p>
+                    <% if (JSON.parse(storage.getItem('user_info')).login === usersObj[item.createdBy]) { %>
+                        <a href="/comments/remove/<%= item._id %>">Delete</a>
+                    <% } %>
+                </div>
+                <% } %>
+            <% }); %>
+        </div>
+    </section>
+<%- include('parts/footer'); %>
