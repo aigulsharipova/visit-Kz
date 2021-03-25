@@ -7,8 +7,16 @@ ___
 - JavaScript
 - jQuery
 - GitHub
+- MongoDB
+- Mongoose 
+- API
+- JSON
+- HTML
+- CSS 
+- Trello
+- EJS
 ___
 
 ## Screenshots 📸
-![Example](./images/photo1.png)
-![Example](./images/photo2.png)
+![Example](/public/images/photo1.png)
+![Example](/public/images/photo2.png)
