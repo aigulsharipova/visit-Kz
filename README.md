@@ -1,7 +1,7 @@
 # Visit Kazakhstan 
 
 A simple web app about Kazakhstan. 
-
+- ## [Tourist app](https://tourist-kz-app.herokuapp.com/)
 ___
 
 ## Technologies Used ⚙️ :
