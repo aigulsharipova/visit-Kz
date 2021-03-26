@@ -26,3 +26,11 @@ exports.delete = function (req, res) {
         // res.redirect('/posts');
     });
 }
+exports.edit = function (req, res) {
+    comments.editOne({
+        _id: req.params.id
+    }, function () {
+        res.redirect(req.get('referer'));
+        // res.redirect('/posts');
+    });
+}

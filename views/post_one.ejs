@@ -23,6 +23,7 @@
                     <p class="mb-0"><%= item.comment %></p>
                     <% if (JSON.parse(storage.getItem('user_info')).login === usersObj[item.createdBy]) { %>
                         <a href="/comments/remove/<%= item._id %>">Delete</a>
+                        <a href="/comments/edit/<%= item._id %>">Edit</a>
                     <% } %>
                 </div>
                 <% } %>

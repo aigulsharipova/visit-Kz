@@ -138,3 +138,10 @@ exports.delete = function (req, res) {
         res.redirect('/posts');
     });
 }
+exports.edit = function (req, res) {
+    posts.editOne({
+        _id: req.params.id
+    }, function () {
+        res.redirect('/posts');
+    });
+}
