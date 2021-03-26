@@ -1,14 +1,25 @@
 <%- include('parts/header', {user_info: header_info.user_info, logged: header_info.logged}); %>
     <section class="section-post-add">
         <div class="container">
-            <p class="text-center">Add Post</p>
-            <form action="/posts/add" method="POST">
-                <p>Post Title: <input type="text" name="post_title" placeholder="Title"></p>
-                <p>Post Info small: <textarea name="post_small" cols="30" rows="6"></textarea></p>
-                <p>Post Info full: <textarea name="post_full" cols="30" rows="6"></textarea></p>
-                <p>Post Image <input type="text" name="post_image"></p>
-                <input type="submit" class="btn btn-primary" value="Create">
-            </form>
+            <% if (type === 'add') { %>
+                <p class="text-center">Add Post</p>
+                <form action="/posts/add" method="POST">
+                    <p>Post Title: <input class="w-100" type="text" name="post_title" placeholder="Title"></p>
+                    <p>Post Info small: <textarea class="w-100" name="post_small" cols="30" rows="6"></textarea></p>
+                    <p>Post Info full: <textarea class="w-100" name="post_full" cols="30" rows="6"></textarea></p>
+                    <p>Post Image <input class="w-100" type="text" name="post_image"></p>
+                    <input type="submit" class="btn btn-primary w-100" value="Create">
+                </form>
+            <% } else { %>
+                <p class="text-center">Edit Post</p>
+                <form action="/posts/edit/<%= item._id %>" method="POST">
+                    <p>Post Title: <input class="w-100" type="text" name="post_title_edit" placeholder="Title" value="<%= item.title %>"></p>
+                    <p>Post Info small: <textarea class="w-100" name="post_small_edit" cols="30" rows="6"><%= item.info_small %></textarea></p>
+                    <p>Post Info full: <textarea class="w-100" name="post_full_edit" cols="30" rows="6"><%= item.info_full %></textarea></p>
+                    <p>Post Image <input class="w-100" type="text" value="<%= item.image_link %>" name="post_image_edit"></p>
+                    <input type="submit" class="btn btn-primary w-100" value="Save">
+                </form>
+            <% } %>
         </div>
     </section>
 <%- include('parts/footer'); %>

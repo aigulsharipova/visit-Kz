@@ -5,9 +5,9 @@
             <ul>
                 <% render.forEach(function(item, index) { %>
                     <li class="d-flex flex-row justify-content-between border">
-                        <p class="mb-0"><%= item.title %></p>
-                        <a href="/posts/delete/<%= item._id %>">Delete</a>
-                        <a href="/posts/edit/<%= item._id %>">Edit</a>
+                        <p class="mb-0" style="width: 100%; max-width: calc(100% / 3 - 5px);"><%= item.title %></p>
+                        <a href="/posts/edit/<%= item._id %>" style="width: 100%; max-width: calc(100% / 3 - 5px); text-align: center;">Edit</a>
+                        <a href="/posts/delete/<%= item._id %>" style="width: 100%; max-width: calc(100% / 3 - 5px); text-align: right;">Delete</a>
                     </li>
                 <% }); %>
             </ul>

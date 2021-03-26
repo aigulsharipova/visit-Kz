@@ -8,5 +8,6 @@ router.post("/add", postCTL.createPost);
 router.get("/:id", postCTL.showOne);
 router.get("/delete/:id", postCTL.delete);
 router.get("/edit/:id", postCTL.edit);
+router.post("/edit/:id", postCTL.save);
 
 module.exports = router;

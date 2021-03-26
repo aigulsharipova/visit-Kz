@@ -6,17 +6,21 @@ const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 
 exports.reg = function (req, res) {
-    // console.log(req.body);
+    // console.log(req.body);]
+    console.log('work_1');
 
-    if (req.body.reg_login && req.body.reg_name && req.body.reg_lastname && req.body.reg_pass && req.body.reg_email)
+    if (req.body.reg_login && req.body.reg_name && req.body.reg_pass && req.body.reg_email)
     {
+        console.log('work_2');
         hashPass(req.body.reg_pass).then(val => {
+            console.log('work_3');
             users.create({
                 login: req.body.reg_login.trim(),
                 name: req.body.reg_name.trim(),
                 email: req.body.reg_email.trim(),
                 password: val
             }, function(err, data) {
+                console.log('work_4');
                 localStorage.setItem('user_info', JSON.stringify({'login' : data.login}));
                 localStorage.setItem('logged', true);
 

@@ -10,7 +10,7 @@
     </section>
     <section class="section-comment">
         <div class="container">
-            <% if (header_info.logged) { %>
+            <% if (header_info.logged && edit_comment.type === 'show') { %>
                 <form method="POST" action="/comments/add/<%= element._id %>" class="border d-flex flex-column">
                     <textarea placeholder="Comment..." name="comment" cols="30" rows="5"></textarea>
                     <input type="submit" class="btn btn-primary" value="Add Comment">
@@ -18,14 +18,23 @@
             <% } %>
             <% comments.forEach(function(item, index) { %>
                 <% if (JSON.stringify(item.postID) === JSON.stringify(element._id)) { %>
-                <div class="mt-2 d-flex flex-column border">
-                    <span><%= usersObj[item.createdBy] %></span>
-                    <p class="mb-0"><%= item.comment %></p>
-                    <% if (JSON.parse(storage.getItem('user_info')).login === usersObj[item.createdBy]) { %>
-                        <a href="/comments/remove/<%= item._id %>">Delete</a>
-                        <a href="/comments/edit/<%= item._id %>">Edit</a>
-                    <% } %>
-                </div>
+                    <div class="mt-2 d-flex flex-column border">
+                        <span><%= usersObj[item.createdBy] %></span>
+                        <% if (JSON.stringify(edit_comment.comment) !== JSON.stringify(item._id)) { %>
+                            <p class="mb-0"><%= item.comment %></p>
+                        <% } else { %>
+                            <form method="POST" action="/comments/edit/<%= item._id %>" class="border d-flex flex-column">
+                                <textarea placeholder="Comment..." name="comment_edit" cols="30" rows="5"><%= item.comment %></textarea>
+                                <input type="submit" class="btn btn-primary" value="Save Comment">
+                            </form>
+                        <% } %>
+                        <% if (JSON.parse(storage.getItem('user_info')).login === usersObj[item.createdBy]) { %>
+                            <a href="/comments/remove/<%= item._id %>">Delete</a>
+                            <% if (edit_comment.type === 'show') { %>
+                                <a href="/posts/<%= element._id %>?action=edit_comment&comment=<%= item._id %>">Edit</a>
+                            <% } %>
+                        <% } %>
+                    </div>
                 <% } %>
             <% }); %>
         </div>
